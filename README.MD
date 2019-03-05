@@ -1,1 +1,0 @@
-This repository will contain examples how to use OSOL.Extremum package
