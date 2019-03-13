@@ -10,9 +10,10 @@ jupyter = "*"
 osol-extremum = "==3.0.0"
 scipy = "*"
 tornado = "==5.1.1"
-cybernetics = "==0.1.1"
 plotly = "*"
 tqdm = "*"
+cybernetics = "==0.1.2"
+pandas = "*"
 
 [requires]
 python_version = "3.6"
