@@ -21,6 +21,7 @@ class BaseModel(ABC):
     def calc_solution(self, initial_state, time_grid=None):
         sol = solve_ivp(
             fun=self, 
+            method="RK45",
             t_span=[self.t0, self.t1], 
             y0=(initial_state + [0.0]),
             dense_output=True, 
