@@ -23,7 +23,7 @@ class BaseModel(ABC):
             fun=self, 
             method="RK45",
             t_span=[self.t0, self.t1], 
-            y0=(initial_state + [0.0]),
+            y0=(initial_state.tolist() + [0.0]),
             dense_output=True, 
             t_eval=time_grid,
             events=self.terminal_events)
