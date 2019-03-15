@@ -15,6 +15,7 @@ tqdm = "*"
 cybernetics = "==0.1.2"
 pandas = "*"
 torch = "*"
+scikit-learn = "*"
 
 [requires]
 python_version = "3.6"
