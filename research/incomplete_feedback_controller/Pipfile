@@ -14,6 +14,7 @@ plotly = "*"
 tqdm = "*"
 cybernetics = "==0.1.2"
 pandas = "*"
+torch = "*"
 
 [requires]
 python_version = "3.6"
