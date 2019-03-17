@@ -27,7 +27,7 @@ class BaseModel(ABC):
             dense_output=True, 
             t_eval=time_grid,
             events=self.terminal_events)
-        if len(sol.t_events) > 0:
+        if len(sol.t_events) > 0 and len(sol.t_events[0]) > 0:
             terminal_value = sol.sol(sol.t_events[0])
             sol.y = np.append(sol.y, terminal_value, axis=1)
         
@@ -107,7 +107,7 @@ class Model_2(BaseModel):
 
 class Model_3(BaseModel):
     
-    def __init__(self, control=None, eps=1e-5, penalty=1e7):
+    def __init__(self, control=None, eps=1e-3, penalty=1e5):
         self.eps = eps
         self.penalty = penalty
         def optimal_control(t, y):
@@ -122,7 +122,7 @@ class Model_3(BaseModel):
         def terminal_event(t, y):
             x = y[0]
             if x > eps or x < -eps:
-                return np.abs(x)
+                return x
             else:
                 return 0.0
         terminal_event.terminal = True
@@ -141,7 +141,7 @@ class Model_3(BaseModel):
         
 class Model_4(BaseModel):
     
-    def __init__(self, control=None, eps=1e-5, penalty=1e7):
+    def __init__(self, control=None, eps=1e-3, penalty=1e5):
         self.eps = eps
         self.penalty = penalty
         def optimal_control(t, y):
