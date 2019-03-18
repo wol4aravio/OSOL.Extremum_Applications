@@ -160,18 +160,19 @@ class Model_4(BaseModel):
             control=control)
         
         def terminal_event(t, y):
-            x1 = y[0]
-            x2 = y[1]
+            x1 = np.abs(y[0])
+            x2 = np.abs(y[1])
             result = 0.0
 
-            if x1 > eps or x1 < -eps:
-                result += np.abs(x1)
-            if x2 > eps or x2 < -eps:
-                result += np.abs(x2)
+            if x1 > eps:
+                result += x1
+            if x2 > eps:
+                result += x2
 
             return result
         terminal_event.terminal = True
         self.terminal_events = [terminal_event]
+        
         
     def __call__(self, t, y):
         x1 = y[0]
