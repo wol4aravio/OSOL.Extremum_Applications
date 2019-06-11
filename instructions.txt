@@ -1,0 +1,11 @@
+conda create -y -n osol_applications 'python>=3.6'
+source activate osol_applications
+
+conda config --env --add pinned_packages 'openjdk>8.0.121'
+conda install -y numpy scipy pandas scikit-learn plotly
+conda install -y -c conda-forge jupyterlab beakerx
+
+jupyter labextension install @jupyter-widgets/jupyterlab-manager
+jupyter labextension install beakerx-jupyterlab
+
+conda list --export > requirements.txt
